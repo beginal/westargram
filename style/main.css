@@ -80,7 +80,7 @@ body {
 /* ----- Story Start ----- */
 
 .story_wrap {
-  display: flex;
+  position: relative;
   width: 100%;
   padding: 16px 0;
   margin: 0 0 24px;
@@ -124,6 +124,34 @@ body {
   color: #c8c8c8;
 }
 
+.story_list {
+  display: flex;
+}
+.story_move_btn_left i,
+.story_move_btn_right i {
+  transform: rotate(-90deg);
+}
+
+.story_move_btn_left,
+.story_move_btn_right  {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color:rgba(255,255,255,.6);
+  transition: color, .5s;
+  border-radius: 100%;
+}
+.story_move_btn_left:hover,
+.story_move_btn_right:hover {
+  color:rgba(255,255,255,1);
+  cursor: pointer;
+}
+.story_move_btn_left {
+  left: 5px;
+}
+.story_move_btn_right {
+  right: 5px;
+}
 /* ----- Story End ----- */
 /* --------------------- */
 /* ----- Feed Start ----- */
@@ -240,7 +268,6 @@ body {
   outline: none;
   resize: none;
 }
-
 .btns {
   display: flex;
 }
