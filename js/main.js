@@ -81,6 +81,7 @@ const dummyPost = {
 
 const _map = (f, iter) => { let res = []; for (const a of iter) { res.push(f(a)); } return res; }
 
+
 const body = document.querySelector('body');
 
 const postNickname = document.querySelectorAll('.user_name');
@@ -176,6 +177,7 @@ function submitComment() { // 댓글 전송
   CommentsLength.textContent = `댓글 ${CommentsList.children.length}개 모두 보기`
   CommentFormButton.setAttribute('disabled', null)
   removeComment()
+  heartToggleWith()
 }
 
 const removeComment = () => {
@@ -188,7 +190,7 @@ const removeComment = () => {
 }
 
 removeComment()
-
+function heartToggleWith() {
 const heartBtn = document.querySelectorAll('.heart_toggle');
 const heartBtnRed = document.querySelectorAll('.heart_toggle redHeart');
 const heartBtnWhite = document.querySelectorAll('.heart_toggle whiteHeart');
@@ -207,6 +209,9 @@ _map((v) => v.addEventListener('click', function() {
 
   }
 }),heartBtn)
+}
+
+heartToggleWith()
 
 // ---- Comments End ---- //
 
