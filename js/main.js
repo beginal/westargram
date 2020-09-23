@@ -183,8 +183,7 @@ navSearch.children[0].addEventListener('keyup', () => {
 
   const userFindData = dummyData.userFind.filter((v) => {
     return v.nickname.includes(navSearchInput.value)
-  })
-  userFindData.map((v) => {
+  }).map((v) => {
     const userFindLi = document.createElement('li');
     const userFindIcon = document.createElement('img');
     const userFindDiv = document.createElement('div');
@@ -200,7 +199,18 @@ navSearch.children[0].addEventListener('keyup', () => {
       return v.nickname.includes(navSearchInput.value)
     }).length)
   })
+  if (userFindData.length === 0) {
+    const userFindLi = document.createElement('li');
+    const userFindDiv = document.createElement('div');
+    const userFindSpan = document.createElement('span');
+    userFindLi.appendChild(userFindDiv)
+    userFindDiv.appendChild(userFindSpan).innerText = '검색 결과가 없습니다.'
+    userFindDiv.style.textAlign = 'center';
+    userFindDiv.style.color = 'gray';
+    searchListUl.appendChild(userFindLi)
+  }
 })
+
 
 const formProfile = document.querySelector('.form_profile');
 body.addEventListener('click', (e) => {
